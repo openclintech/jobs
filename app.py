@@ -29,10 +29,14 @@ compensation_range = st.sidebar.slider(
 )
 min_compensation, max_compensation = compensation_range
 
+# Keyword search for "Job Title"
+job_title_keyword = st.sidebar.text_input('Job Title Keyword Search').lower()
+
 # Apply the "Remote only" filter
 if remote_only:
     data = data[data['remote'].isin(['yes', 'hybrid'])]
 
+# Apply compensation filters
 if not include_no_comp:
     data = data.dropna(subset=['compensation_min', 'compensation_max'])
     data = data[(data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation)]
@@ -40,11 +44,9 @@ else:
     mask = (data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation) | data['compensation_min'].isna() | data['compensation_max'].isna()
     data = data[mask]
 
-for column in data.columns.drop(['compensation_min', 'compensation_max', 'remote', 'link to appy']):
-    unique_values = data[column].dropna().unique()
-    selected_values = st.sidebar.multiselect(f'Filter by {column}', unique_values)
-    if selected_values:
-        data = data[data[column].isin(selected_values)]
+# Apply job title keyword search filter
+if job_title_keyword:
+    data = data[data['job_title'].str.lower().str.contains(job_title_keyword)]
 
 # Display the filtered DataFrame without the 'link to appy'
 st.write(data.drop(columns=['link to appy']))
