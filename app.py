@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 def load_data(filepath):
-    data = pd.read_csv(filepath, delimiter='\t')
+    data = pd.read_csv(filepath)
     data['compensation_min'] = pd.to_numeric(data['compensation_min'].replace('[\$,]', '', regex=True), errors='coerce')
     data['compensation_max'] = pd.to_numeric(data['compensation_max'].replace('[\$,]', '', regex=True), errors='coerce')
     return data
