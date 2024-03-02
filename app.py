@@ -13,6 +13,9 @@ data = load_data()
 
 st.sidebar.header('Filter options')
 
+# New "Remote only" checkbox
+remote_only = st.sidebar.checkbox('Remote only', False)
+
 include_no_comp = st.sidebar.checkbox('Include jobs without compensation details', True)
 
 # Compensation range slider
@@ -25,9 +28,6 @@ compensation_range = st.sidebar.slider(
     format='%d'
 )
 min_compensation, max_compensation = compensation_range
-
-# New "Remote only" checkbox
-remote_only = st.sidebar.checkbox('Remote only', False)
 
 # Apply the "Remote only" filter
 if remote_only:
