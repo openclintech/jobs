@@ -18,10 +18,17 @@ st.sidebar.header('Filter options')
 # Checkbox to include jobs without compensation details
 include_no_comp = st.sidebar.checkbox('Include jobs without compensation details', True)
 
-# Compensation range input
-min_compensation = st.sidebar.number_input('Minimum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max(skipna=True)), step=1000, format='%d')
-max_compensation = st.sidebar.number_input('Maximum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max(skipna=True)), step=1000, format='%d', value=int(data['compensation_max'].max(skipna=True)))
+# Compensation range slider
+compensation_range = st.sidebar.slider(
+    'Compensation Range ($)',
+    min_value=int(data['compensation_min'].min(skipna=True)),
+    max_value=int(data['compensation_max'].max(skipna=True)),
+    value=(75000, int(data['compensation_max'].max(skipna=True))),
+    step=1000,
+    format='%d'
+)
 
+min_compensation, max_compensation = compensation_range
 # Remote filter
 remote_options = ['All', 'Yes', 'No', 'Unknown']
 selected_remote = st.sidebar.selectbox('Remote?', remote_options)
