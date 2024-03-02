@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the CSV data into a DataFrame
-@st.cache
+# @st.cache
 def load_data():
     data = pd.read_csv('jobs.csv')
     # Convert compensation columns to numeric, removing any non-numeric characters
