@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 # Load the CSV data into a DataFrame
-# @st.cache
+@st.cache
 def load_data():
     data = pd.read_csv('jobs.csv')
     # Convert compensation columns to numeric, removing any non-numeric characters
@@ -26,25 +26,29 @@ max_compensation = st.sidebar.number_input('Maximum Compensation ($)', min_value
 remote_options = ['All', 'Yes', 'No', 'Unknown']
 selected_remote = st.sidebar.selectbox('Remote?', remote_options)
 
-# Apply Remote filter
+# Apply filters
 if selected_remote != 'All':
     data = data[data['remote'].str.lower() == selected_remote.lower()]
 
-# Apply compensation filter based on the checkbox
 if not include_no_comp:
     data = data.dropna(subset=['compensation_min', 'compensation_max'])
     data = data[(data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation)]
 else:
-    # Apply compensation filters only to rows with compensation details or include all
     mask = (data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation) | data['compensation_min'].isna() | data['compensation_max'].isna()
     data = data[mask]
 
-# Dynamically create filters for other fields
-for column in data.columns.drop(['compensation_min', 'compensation_max', 'remote']):
+for column in data.columns.drop(['compensation_min', 'compensation_max', 'remote', 'link to appy']):
     unique_values = data[column].dropna().unique()
     selected_values = st.sidebar.multiselect(f'Filter by {column}', unique_values)
     if selected_values:
         data = data[data[column].isin(selected_values)]
 
-# Display the filtered DataFrame
-st.write(data)
+# Display the filtered DataFrame without the 'link to appy'
+st.write(data.drop(columns=['link to appy']))
+
+# New Section for Job Applications
+st.header("Apply to Selected Jobs")
+apply_data = data[['job_title', 'company', 'link to appy']].drop_duplicates()
+for _, row in apply_data.iterrows():
+    st.markdown(f"**{row['job_title']}** at **{row['company']}**")
+    st.markdown(f"[Apply Here]({row['link to appy']})")
