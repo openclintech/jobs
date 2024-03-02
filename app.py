@@ -45,7 +45,7 @@ def main():
 
     filtered_data = filter_data(data, remote_only, include_no_comp, *compensation_range, job_title_keyword, selected_company, selected_city, selected_state)
     st.write(filtered_data)
-    # display_applications(filtered_data)  # Uncomment and adjust if links are to be displayed
+    display_applications(filtered_data)  # Uncomment and adjust if links are to be displayed
 
 if __name__ == "__main__":
     main()
