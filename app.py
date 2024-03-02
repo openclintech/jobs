@@ -15,13 +15,21 @@ data = load_data()
 # Sidebar filters
 st.sidebar.header('Filter options')
 
-# Compensation range input
-min_compensation = st.sidebar.number_input('Minimum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max()), step=1000, format='%d')
-max_compensation = st.sidebar.number_input('Maximum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max()), step=1000, format='%d', value=int(data['compensation_max'].max()))
+# Checkbox to include jobs without compensation details
+include_no_comp = st.sidebar.checkbox('Include jobs without compensation details', True)
 
-# Filter data based on compensation
-if min_compensation or max_compensation:
+# Compensation range input
+min_compensation = st.sidebar.number_input('Minimum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max(skipna=True)), step=1000, format='%d')
+max_compensation = st.sidebar.number_input('Maximum Compensation ($)', min_value=0, max_value=int(data['compensation_max'].max(skipna=True)), step=1000, format='%d', value=int(data['compensation_max'].max(skipna=True)))
+
+# Filter data based on compensation and checkbox
+if not include_no_comp:
+    data = data.dropna(subset=['compensation_min', 'compensation_max'])
     data = data[(data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation)]
+else:
+    # Apply compensation filters only to rows with compensation details
+    mask = (data['compensation_min'] >= min_compensation) & (data['compensation_max'] <= max_compensation) | data['compensation_min'].isna() | data['compensation_max'].isna()
+    data = data[mask]
 
 # Dynamically create filters for other fields
 for column in data.columns.drop(['compensation_min', 'compensation_max']):
@@ -32,3 +40,4 @@ for column in data.columns.drop(['compensation_min', 'compensation_max']):
 
 # Display the filtered DataFrame
 st.write(data)
+
