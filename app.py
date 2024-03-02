@@ -1,8 +1,10 @@
 import streamlit as st
 import pandas as pd
 
+# Load the CSV data into a DataFrame
 def load_data():
     data = pd.read_csv('jobs.csv')
+    # Convert compensation columns to numeric, removing any non-numeric characters
     data['compensation_min'] = pd.to_numeric(data['compensation_min'].replace('[\$,]', '', regex=True), errors='coerce')
     data['compensation_max'] = pd.to_numeric(data['compensation_max'].replace('[\$,]', '', regex=True), errors='coerce')
     return data
@@ -11,12 +13,9 @@ data = load_data()
 
 st.sidebar.header('Filter options')
 
-# Checkbox to include jobs without compensation details
 include_no_comp = st.sidebar.checkbox('Include jobs without compensation details', True)
 
-# New Checkbox for Remote Work Options
-include_jobs_without_remote = st.sidebar.checkbox('Include jobs without remote details', True)
-
+# Compensation range slider
 compensation_range = st.sidebar.slider(
     'Compensation Range ($)',
     min_value=int(data['compensation_min'].min(skipna=True)),
@@ -25,12 +24,14 @@ compensation_range = st.sidebar.slider(
     step=1000,
     format='%d'
 )
-
 min_compensation, max_compensation = compensation_range
 
-# Filtering Logic for Remote Options
-if not include_jobs_without_remote:
-    data = data[data['remote'].isin(['Yes', 'Hybrid'])]
+# New "Remote only" checkbox
+remote_only = st.sidebar.checkbox('Remote only', False)
+
+# Apply the "Remote only" filter
+if remote_only:
+    data = data[data['remote'].isin(['yes', 'hybrid'])]
 
 if not include_no_comp:
     data = data.dropna(subset=['compensation_min', 'compensation_max'])
@@ -45,8 +46,10 @@ for column in data.columns.drop(['compensation_min', 'compensation_max', 'remote
     if selected_values:
         data = data[data[column].isin(selected_values)]
 
+# Display the filtered DataFrame without the 'link to appy'
 st.write(data.drop(columns=['link to appy']))
 
+# New Section for Job Applications
 st.header("Apply to Selected Jobs")
 apply_data = data[['job_title', 'company', 'link to appy']].drop_duplicates()
 
