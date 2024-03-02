@@ -49,6 +49,11 @@ st.write(data.drop(columns=['link to appy']))
 # New Section for Job Applications
 st.header("Apply to Selected Jobs")
 apply_data = data[['job_title', 'company', 'link to appy']].drop_duplicates()
-for _, row in apply_data.iterrows():
-    st.markdown(f"**{row['job_title']}** at **{row['company']}**")
-    st.markdown(f"[Apply Here]({row['link to appy']})")
+
+if not apply_data.empty:
+    for i, row in enumerate(apply_data.iterrows(), start=1):
+        job_info = f"{i}. **{row[1]['job_title']}** at **{row[1]['company']}** - [Apply Here]({row[1]['link to appy']})"
+        st.markdown(job_info)
+else:
+    st.write("No job listings match your filters.")
+
