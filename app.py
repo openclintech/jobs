@@ -4,7 +4,7 @@ import pandas as pd
 # Load the CSV data into a DataFrame
 @st.cache
 def load_data():
-    data = pd.read_csv('job_listings.csv')
+    data = pd.read_csv('jobs.csv')
     # Convert compensation columns to numeric, removing any non-numeric characters
     data['compensation_min'] = pd.to_numeric(data['compensation_min'].replace('[\$,]', '', regex=True), errors='coerce')
     data['compensation_max'] = pd.to_numeric(data['compensation_max'].replace('[\$,]', '', regex=True), errors='coerce')
