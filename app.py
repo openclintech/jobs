@@ -47,7 +47,7 @@ def display_jobs_to_apply_for(filtered_data):
         for i, row in enumerate(filtered_data.itertuples(), start=1):
             # Access using the original column names as attributes
             # Adjust the attribute names if they don't match your DataFrame exactly
-            st.markdown(f"{i}. **{getattr(row, 'Job_Title')}** at **{getattr(row, 'Company')}** - [Apply Here]({getattr(row, 'Link_To_Appy')})")
+            st.markdown(f"{i}. **{getattr(row, 'Job Title')}** at **{getattr(row, 'Company')}** - [Apply Here]({getattr(row, 'Link_To_Appy')})")
     else:
         st.write("No job listings match your filters.")
 
