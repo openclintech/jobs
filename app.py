@@ -43,7 +43,10 @@ def display_jobs_to_apply_for(filtered_data):
     st.header("Jobs to Apply For")
     if not filtered_data.empty:
         for i, row in enumerate(filtered_data.itertuples(), start=1):
-            st.markdown(f"{i}. **{row.job_title}** at **{row.company}** - [Apply Here]({row.link_to_appy})")
+            # Ensure that the attribute access matches your DataFrame's column names.
+            # If your DataFrame has the column "job_title", this should work as expected.
+            # Adjust 'link_to_appy' to the correct column name if different.
+            st.markdown(f"{i}. **{getattr(row, 'job_title')}** at **{getattr(row, 'company')}** - [Apply Here]({getattr(row, 'link_to_appy')})")
     else:
         st.write("No job listings match your filters.")
 
