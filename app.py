@@ -39,15 +39,12 @@ def filter_data(data, comp_details_only, min_comp, max_comp, keywords, companies
 
     return data
 
-def display_jobs_to_apply_for(filtered_data):
-    st.header("Jobs to Apply For")
-    if not filtered_data.empty:
-        # Ensure column names are correctly referenced
-        # If column names were modified to title case, revert or adjust the reference accordingly
-        for i, row in enumerate(filtered_data.itertuples(), start=1):
-            # Access using the original column names as attributes
-            # Adjust the attribute names if they don't match your DataFrame exactly
-            st.markdown(f"{i}. **{getattr(row, 'Job Title')}** at **{getattr(row, 'Company')}** - [Apply Here]({getattr(row, 'Link_To_Appy')})")
+def display_applications(data):
+    st.header("Apply to Selected Jobs")
+    if not data.empty:
+        for i, row in data.iterrows():
+            job_info = f"{i+1}. **{row['job_title']}** at **{row['company']}** - [Apply Here]({row['link to appy']})"
+            st.markdown(job_info)
     else:
         st.write("No job listings match your filters.")
 
@@ -61,14 +58,10 @@ def main():
     selected_city = st.sidebar.multiselect('City', data['city'].dropna().unique())
     selected_state = st.sidebar.multiselect('State', data['state'].dropna().unique())
 
-    filtered_data = filter_data(data, comp_details_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
-    
-    # Convert DataFrame column names to title case for display
-    filtered_data.columns = [col.replace('_', ' ').title() for col in filtered_data.columns]
+    filtered_data = filter_data(data, remote_only, include_no_comp, *compensation_range, job_title_keyword, selected_company, selected_city, selected_state)
     st.write(filtered_data)
-    
-    # Display section for jobs to apply for
-    display_jobs_to_apply_for(filtered_data)
+
+    display_applications(filtered_data)
 
 if __name__ == "__main__":
     main()
