@@ -15,7 +15,7 @@ def get_compensation_range(data, comp_details_only):
             'Compensation Range ($)', 
             min_value=min_value, 
             max_value=max_value, 
-            value=(75000, max_value), 
+            value=(7500, max_value), 
             step=1000, 
             format='%d'
         )
@@ -29,7 +29,8 @@ def filter_data(data, remote_only, comp_details_only, min_comp, max_comp, keywor
     if comp_details_only:
         data = data.dropna(subset=['compensation_min', 'compensation_max'])
         data = data[(data['compensation_min'] >= min_comp) & (data['compensation_max'] <= max_comp)]
-    
+    if internships_only:
+        data = data[data['internship/training'] == 'yes']
     if keywords:
         data = data[data['job_title'].str.lower().str.contains(keywords.lower())]
     if companies:
@@ -54,6 +55,7 @@ def main():
     data = load_data('jobs.csv')
     remote_only = st.sidebar.checkbox('Remote only', False)
     comp_details_only = st.sidebar.checkbox('Only jobs with compensation details', True)
+    internships_only = st.sidebar.checkbox('Internships/Training only', False)
     min_compensation, max_compensation = get_compensation_range(data, comp_details_only)
     
     job_title_keyword = st.sidebar.text_input('Job Title Keyword Search')
