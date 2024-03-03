@@ -24,6 +24,8 @@ def get_compensation_range(data, comp_details_only):
     return min_compensation, max_compensation
 
 def filter_data(data, remote_only, comp_details_only, min_comp, max_comp, keywords, companies, cities, states):
+    if remote_only:
+        data = data[(data['remote'] == 'yes') | (data['remote'] == 'hybrid')]
     if comp_details_only:
         data = data.dropna(subset=['compensation_min', 'compensation_max'])
         data = data[(data['compensation_min'] >= min_comp) & (data['compensation_max'] <= max_comp)]
