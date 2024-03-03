@@ -23,7 +23,7 @@ def get_compensation_range(data, comp_details_only):
         min_compensation, max_compensation = 0, int(data['compensation_max'].max(skipna=True))
     return min_compensation, max_compensation
 
-def filter_data(data, remote_only, comp_details_only, min_comp, max_comp, keywords, companies, cities, states):
+def filter_data(data, remote_only, comp_details_only, internships_only, min_comp, max_comp, keywords, companies, cities, states):
     if remote_only:
         data = data[(data['remote'] == 'yes') | (data['remote'] == 'hybrid')]
     if comp_details_only:
@@ -63,7 +63,7 @@ def main():
     selected_city = st.sidebar.multiselect('City', data['city'].dropna().unique())
     selected_state = st.sidebar.multiselect('State', data['state'].dropna().unique())
 
-    filtered_data = filter_data(data, remote_only, comp_details_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
+    filtered_data = filter_data(data, remote_only, comp_details_only, internships_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
     
     # Drop columns not needed for initial display
     data_display = filtered_data.drop(columns=['remote', 'link to appy'])
