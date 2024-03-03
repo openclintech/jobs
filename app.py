@@ -8,16 +8,15 @@ def load_data(filepath):
     return data
 
 def get_compensation_range(data, comp_details_only):
-    """Display and get the compensation range based on user input."""
     if comp_details_only:
         min_value = int(data['compensation_min'].min(skipna=True))
         max_value = int(data['compensation_max'].max(skipna=True))
         min_compensation, max_compensation = st.sidebar.slider(
-            'Compensation Range ($)',
-            min_value=min_value,
-            max_value=max_value,
-            value=(75000, max_value),
-            step=1000,
+            'Compensation Range ($)', 
+            min_value=min_value, 
+            max_value=max_value, 
+            value=(75000, max_value), 
+            step=1000, 
             format='%d'
         )
     else:
@@ -40,6 +39,14 @@ def filter_data(data, comp_details_only, min_comp, max_comp, keywords, companies
 
     return data
 
+def display_jobs_to_apply_for(filtered_data):
+    st.header("Jobs to Apply For")
+    if not filtered_data.empty:
+        for i, row in enumerate(filtered_data.itertuples(), start=1):
+            st.markdown(f"{i}. **{row.job_title}** at **{row.company}** - [Apply Here]({row.link_to_appy})")
+    else:
+        st.write("No job listings match your filters.")
+
 def main():
     data = load_data('jobs.csv')
     comp_details_only = st.sidebar.checkbox('Only jobs with compensation details', True)
@@ -51,7 +58,13 @@ def main():
     selected_state = st.sidebar.multiselect('State', data['state'].dropna().unique())
 
     filtered_data = filter_data(data, comp_details_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
+    
+    # Convert DataFrame column names to title case for display
+    filtered_data.columns = [col.replace('_', ' ').title() for col in filtered_data.columns]
     st.write(filtered_data)
+    
+    # Display section for jobs to apply for
+    display_jobs_to_apply_for(filtered_data)
 
 if __name__ == "__main__":
     main()
