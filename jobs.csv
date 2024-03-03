@@ -1,16 +1,28 @@
-job_title,company,compensation_min,compensation_max,remote,city,state,link to appy
-"Health Equity Clinical Specialist, Google Health",Google,"$119,000.00","$175,000.00",,New York,NY,https://www.google.com/about/careers/applications/jobs/results/79416714615235270-health-equity-clinical-specialist-google-health
-Lead Clinical Informatics Specialist,Oak Street Health,,,,Chicago,IL,https://www.oakstreethealth.com/careers/job-oQXMrfwK-lead-clinical-informatics-specialist
-"Director, Research Informatics and Data Infrastructure",Metaphore Biotechnologies,,,,Cambridge,MA,https://boards.greenhouse.io/flagshippioneeringinc/jobs/7043212002?gh_jid=7043212002
+job_title,company,compensation_min,compensation_max,remote,city,state,internship/training,link to appy
+"Health Equity Clinical Specialist, Google Health",Google,"$119,000.00","$175,000.00",,New York,NY,no,https://www.google.com/about/careers/applications/jobs/results/79416714615235270-health-equity-clinical-specialist-google-health
+Lead Clinical Informatics Specialist,Oak Street Health,,,,Chicago,IL,no,https://www.oakstreethealth.com/careers/job-oQXMrfwK-lead-clinical-informatics-specialist
+"Director, Research Informatics and Data Infrastructure",Metaphore Biotechnologies,,,,Cambridge,MA,no,https://boards.greenhouse.io/flagshippioneeringinc/jobs/7043212002?gh_jid=7043212002
 "Director, HCP Digital Product Lead
-",Pfizer,"$149,200.00","$248,600.00",,New York,NY,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-States---Pennsylvania---Collegeville/Director--HCP-Digital-Product-Lead_4907183-3?source=linkedin
-Senior Manager Artificial Intelligence,Johnson & Johnson,,,,,IL,https://jnjc.taleo.net/careersection/2/jobdetail.ftl?job=2306155290W&lang=en
+",Pfizer,"$149,200.00","$248,600.00",,New York,NY,no,https://pfizer.wd1.myworkdayjobs.com/PfizerCareers/job/United-States---Pennsylvania---Collegeville/Director--HCP-Digital-Product-Lead_4907183-3?source=linkedin
+Senior Manager Artificial Intelligence,Johnson & Johnson,,,,,IL,no,https://jnjc.taleo.net/careersection/2/jobdetail.ftl?job=2306155290W&lang=en
 "Sr Specialist, Regulatory Digital Health Fellowship
-",Merck,,,,North Wales,PA,https://jobs.merck.com/us/en/job/MERCUSP100792ENUS/Sr-Specialist-Regulatory-Digital-Health-Fellowship-Hiring-our-Heroes-Hybrid?utm_source=linkedin&utm_medium=phenom-feeds
-"Manager, Clinical Informatics",Olympic Medical Center,"$97,880.64","$159,700.32",,Port Angeles,WA,https://olympicmedical.csod.com/ux/ats/careersite/14/home/requisition/5338?c=olympicmedical
-Director Clinical Informatics,HCA Healthcare,,,,Nashville,TN,https://careers.hcahealthcare.com/jobs/13892441-director-clinical-informatics?bid=370&tm_company=2537&tm_event=view&tm_job=1-INFOR-1740152
-Biomedical Informatics Research Specialist,University of Illinois Chicago,"$80,000.00","$95,000.00",,Chicago,IL,https://uic.csod.com/ux/ats/careersite/1/home/requisition/8629?c=uic
-"Medical Informatics Analyst, Senior","Medical Informatics Analyst, Senior","$99,000.00","$148,500.00",,,CA,https://ecge.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/20240090?utm_medium=jobboard&utm_source=linkedin
-Health System Medical Director and Head of Population Informatics,Labcorp,"$300,000.00","$330,000.00",,,NC,https://careers.labcorp.com/global/en/job/COVAGLOBAL2367185EXTERNALENGLOBAL/Health-System-Medical-Director-and-Head-of-Population-Informatics?utm_source=linkedin&utm_campaign=linkedin
-Industry Advisor Health & Life Sciences,Microsoft,"$122,400.00","$235,000.00",yes,remote,remote,https://jobs.careers.microsoft.com/us/en/job/1675329/Industry-Advisor-Health-&-Life-Sciences
-Clinical Producer,Apple,"$160,700.00","$241,500.00",,Cupertino,CA,https://jobs.apple.com/en-us/details/200536277/clinical-producer?team=SFTWR
+",Merck,,,,North Wales,PA,yes,https://jobs.merck.com/us/en/job/MERCUSP100792ENUS/Sr-Specialist-Regulatory-Digital-Health-Fellowship-Hiring-our-Heroes-Hybrid?utm_source=linkedin&utm_medium=phenom-feeds
+"Manager, Clinical Informatics",Olympic Medical Center,"$97,880.64","$159,700.32",,Port Angeles,WA,no,https://olympicmedical.csod.com/ux/ats/careersite/14/home/requisition/5338?c=olympicmedical
+Director Clinical Informatics,HCA Healthcare,,,,Nashville,TN,no,https://careers.hcahealthcare.com/jobs/13892441-director-clinical-informatics?bid=370&tm_company=2537&tm_event=view&tm_job=1-INFOR-1740152
+Biomedical Informatics Research Specialist,University of Illinois Chicago,"$80,000.00","$95,000.00",,Chicago,IL,no,https://uic.csod.com/ux/ats/careersite/1/home/requisition/8629?c=uic
+"Medical Informatics Analyst, Senior","Medical Informatics Analyst, Senior","$99,000.00","$148,500.00",,,CA,no,https://ecge.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1003/job/20240090?utm_medium=jobboard&utm_source=linkedin
+Health System Medical Director and Head of Population Informatics,Labcorp,"$300,000.00","$330,000.00",,,NC,no,https://careers.labcorp.com/global/en/job/COVAGLOBAL2367185EXTERNALENGLOBAL/Health-System-Medical-Director-and-Head-of-Population-Informatics?utm_source=linkedin&utm_campaign=linkedin
+Industry Advisor Health & Life Sciences,Microsoft,"$122,400.00","$235,000.00",yes,remote,remote,no,https://jobs.careers.microsoft.com/us/en/job/1675329/Industry-Advisor-Health-&-Life-Sciences
+Clinical Producer,Apple,"$160,700.00","$241,500.00",,Cupertino,CA,no,https://jobs.apple.com/en-us/details/200536277/clinical-producer?team=SFTWR
+"Clinical Specialist, Cardiology",Apple,"$199,800.00","$300,200.00",,Cupertino,CA,no,https://jobs.apple.com/en-us/details/200516772/clinical-specialist-cardiology?team=HRDWR
+"Director, Healthcare Applied Research",Nvidia,"$304,000.00","$460,000.00",,Santa Clara,CA,no,https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/details/Director--Healthcare-Applied-Research_JR1980515
+"Data Scientist, Product",OpenAI,"$245,000.00","$385,000.00",no,San Francisco,CA,no,https://openai.com/careers/data-scientist-product
+Research Scientist,OpenAI,"$295,000.00","$444,000.00",no,San Francisco,CA,no,https://jobs.ashbyhq.com/openai/5f0c6579-0bfb-4a06-8a43-1dd371499e10/application
+Research Engineer,OpenAI,"$295,000.00","$440,000.00",no,San Francisco,CA,no,https://openai.com/careers/research-engineer
+"Product Manager, Generalist",Anthropic,"$275,000.00","$375,000.00",no,San Francisco,CA,no,https://jobs.lever.co/Anthropic/1cb93aae-f570-441f-8222-8c58d5fa1982
+"Product Manager, API",Anthropic,"$275,000.00","$375,000.00",no,San Francisco,CA,no,https://jobs.lever.co/Anthropic/5a893c9f-3a2a-4bba-b8f6-62fa6d0fd6c9
+"Product Manager, Reserach",Anthropic,"$275,000.00","$375,000.00",yes,San Francisco,CA,no,https://jobs.lever.co/Anthropic/e014000e-d167-4e81-9859-506b8b424c0f
+"Principal Technical Product Manager, AWS Industry Products, Healthcare and Life Science",Amazon,"$144,900.00","$281,800.00",no,Philadelphia,PA,no,https://www.amazon.jobs/en/jobs/2546738/principal-technical-product-manager-aws-industry-products-healthcare-and-life-science
+"Principal Technical Product Manager, AWS Industry Products, Healthcare and Life Science",Amazon,"$144,900.00","$281,800.00",no,Austin,TX,no,https://www.amazon.jobs/en/jobs/2546738/principal-technical-product-manager-aws-industry-products-healthcare-and-life-science
+"Principal Technical Product Manager, AWS Industry Products, Healthcare and Life Science",Amazon,"$144,900.00","$281,800.00",no,Seattle,WA,no,https://www.amazon.jobs/en/jobs/2546738/principal-technical-product-manager-aws-industry-products-healthcare-and-life-science
+2024 Pharmacy Clinical Informatics Summer Internship Program,Beth Israel Deaconess Medical Center,"$7,500.00","$7,500.00",yes,,,yes,https://research.bidmc.org/dci/2024-pharmacy-clinical-informatics-summer-internship-program
