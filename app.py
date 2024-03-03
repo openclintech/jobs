@@ -42,11 +42,12 @@ def filter_data(data, comp_details_only, min_comp, max_comp, keywords, companies
 def display_jobs_to_apply_for(filtered_data):
     st.header("Jobs to Apply For")
     if not filtered_data.empty:
+        # Ensure column names are correctly referenced
+        # If column names were modified to title case, revert or adjust the reference accordingly
         for i, row in enumerate(filtered_data.itertuples(), start=1):
-            # Ensure that the attribute access matches your DataFrame's column names.
-            # If your DataFrame has the column "job_title", this should work as expected.
-            # Adjust 'link_to_appy' to the correct column name if different.
-            st.markdown(f"{i}. **{getattr(row, 'job_title')}** at **{getattr(row, 'company')}** - [Apply Here]({getattr(row, 'link_to_appy')})")
+            # Access using the original column names as attributes
+            # Adjust the attribute names if they don't match your DataFrame exactly
+            st.markdown(f"{i}. **{getattr(row, 'Job_Title')}** at **{getattr(row, 'Company')}** - [Apply Here]({getattr(row, 'Link_To_Appy')})")
     else:
         st.write("No job listings match your filters.")
 
