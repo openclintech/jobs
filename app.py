@@ -61,7 +61,7 @@ def main():
     selected_city = st.sidebar.multiselect('City', data['city'].dropna().unique())
     selected_state = st.sidebar.multiselect('State', data['state'].dropna().unique())
 
-    filtered_data = filter_data(data, remote_only, include_no_comp, *compensation_range, job_title_keyword, selected_company, selected_city, selected_state)
+    filtered_data = filter_data(data, remote_only, include_no_comp, comp_details_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
     
     # Drop columns not needed for initial display
     data_display = filtered_data.drop(columns=['remote', 'link to appy'])
