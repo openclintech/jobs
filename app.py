@@ -66,7 +66,7 @@ def main():
     filtered_data = filter_data(data, remote_only, comp_details_only, internships_only, min_compensation, max_compensation, job_title_keyword, selected_company, selected_city, selected_state)
     
     # Drop columns not needed for initial display
-    data_display = filtered_data.drop(columns=['remote', 'link to appy'])
+    data_display = filtered_data.drop(columns=['remote', 'link to appy', 'internship/training'])
     st.write(data_display)
 
     display_applications(filtered_data)
